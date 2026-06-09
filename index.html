@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
 
     <header class="bg-white shadow-sm sticky top-0 z-50">
@@ -14,20 +16,20 @@
             <h1 class="text-2xl font-bold text-gray-900 tracking-tight flex items-center gap-2">
                 <i class="fa-solid fa-store text-indigo-600"></i> Catálogo Digital
             </h1>
-            
+
             <div class="relative w-full sm:w-96">
                 <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-400">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </span>
-                <input type="text" id="search-input" 
-                       class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-gray-50"
-                       placeholder="Buscar por Marca, Código ou Nome...">
+                <input type="text" id="search-input"
+                    class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-gray-50"
+                    placeholder="Buscar por Marca, Código ou Nome...">
             </div>
         </div>
     </header>
 
     <main class="flex-1 max-w-7xl w-full mx-auto px-4 py-6 grid grid-cols-1 lg:grid-cols-4 gap-6">
-        
+
         <aside class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 h-fit space-y-6">
             <div class="flex items-center justify-between border-b pb-3">
                 <h2 class="font-semibold text-lg flex items-center gap-2">
@@ -40,21 +42,24 @@
 
             <div>
                 <label class="block text-sm font-medium text-gray-700 mb-2">Marca</label>
-                <select id="filter-marca" class="w-full p-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 text-sm">
+                <select id="filter-marca"
+                    class="w-full p-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 text-sm">
                     <option value="">Todas as Marcas</option>
                 </select>
             </div>
 
             <div>
                 <label class="block text-sm font-medium text-gray-700 mb-2">Categoria</label>
-                <select id="filter-categoria" class="w-full p-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 text-sm">
+                <select id="filter-categoria"
+                    class="w-full p-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 text-sm">
                     <option value="">Todas as Categorias</option>
                 </select>
             </div>
 
             <div>
                 <label class="block text-sm font-medium text-gray-700 mb-2">Gênero</label>
-                <select id="filter-genero" class="w-full p-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 text-sm">
+                <select id="filter-genero"
+                    class="w-full p-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 text-sm">
                     <option value="">Todos os Gêneros</option>
                     <option value="Masculino">Masculino</option>
                     <option value="Feminino">Feminino</option>
@@ -67,7 +72,9 @@
                 <div>
                     <label class="relative inline-flex items-center cursor-pointer">
                         <input type="checkbox" id="filter-promo" class="sr-only peer">
-                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-indigo-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-indigo-600"></div>
+                        <div
+                            class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-indigo-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-indigo-600">
+                        </div>
                         <span class="ml-3 text-sm font-medium text-gray-700">Apenas Promoções</span>
                     </label>
                 </div>
@@ -75,7 +82,9 @@
                 <div>
                     <label class="relative inline-flex items-center cursor-pointer">
                         <input type="checkbox" id="filter-entrega" class="sr-only peer">
-                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-indigo-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-emerald-600"></div>
+                        <div
+                            class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-indigo-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-emerald-600">
+                        </div>
                         <span class="ml-3 text-sm font-medium text-gray-700">Pronta Entrega</span>
                     </label>
                 </div>
@@ -88,7 +97,7 @@
             </div>
 
             <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
-                </div>
+            </div>
 
             <div id="empty-state" class="hidden text-center py-16 bg-white rounded-xl shadow-sm border border-gray-100">
                 <i class="fa-solid fa-box-open text-gray-300 text-5xl mb-4"></i>
@@ -124,10 +133,10 @@
             try {
                 const response = await fetch('produtos.csv');
                 if (!response.ok) throw new Error('Não foi possível ler o arquivo CSV.');
-                
+
                 const data = await response.text();
                 produtos = parsingCSV(data);
-                
+
                 popularFiltrosDinamicos(produtos);
                 renderizarProdutos(produtos);
             } catch (error) {
@@ -136,12 +145,13 @@
             }
         }
 
+        // Converte o texto CSV estruturado por ';' em Objetos JavaScript
         function parsingCSV(text) {
             const linhas = text.split('\n').map(l => l.trim()).filter(l => l.length > 0);
             if (linhas.length <= 1) return [];
 
             const cabecalho = linhas[0].split(';').map(c => c.trim());
-            
+
             return linhas.slice(1).map(linha => {
                 const valores = dynamicSplit(linha, ';');
                 const item = {};
@@ -166,7 +176,7 @@
                 } else if (nomeMinusculo.includes('unisex') || nomeMinusculo.includes('unissex')) {
                     item['_genero_detectated'] = 'Unisex';
                 } else {
-                    item['_genero_detectado'] = 'Outros'; 
+                    item['_genero_detectado'] = 'Outros';
                 }
 
                 return item;
@@ -199,10 +209,10 @@
             const categorias = [...new Set(lista.map(i => i.Categoria))].sort();
 
             marcas.forEach(m => {
-                if(m) filterMarca.add(new Option(m, m));
+                if (m) filterMarca.add(new Option(m, m));
             });
             categorias.forEach(c => {
-                if(c) filterCategoria.add(new Option(c, c));
+                if (c) filterCategoria.add(new Option(c, c));
             });
         }
 
@@ -223,14 +233,14 @@
             }
 
             const filtrados = produtos.filter(p => {
-                const bateQuery = !query || 
-                    p.Nome.toLowerCase().includes(query) || 
-                    p.Marca.toLowerCase().includes(query) || 
+                const bateQuery = !query ||
+                    p.Nome.toLowerCase().includes(query) ||
+                    p.Marca.toLowerCase().includes(query) ||
                     p.Codigo.toLowerCase().includes(query);
 
                 const bateMarca = !colMarca || p.Marca === colMarca;
                 const bateCategoria = !colCategoria || p.Categoria === colCategoria;
-                
+
                 // Validação do gênero detectado (Trata Unisex/Unissex juntos)
                 let bateGenero = true;
                 if (colGenero) {
@@ -264,7 +274,7 @@
             lista.forEach(p => {
                 const temPromo = p['Preço Promocional'] > 0;
                 const prontaEntrega = p['Pronta Entrega'].toLowerCase() === 'sim';
-                
+
                 const card = document.createElement('div');
                 card.className = "bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow flex flex-col group relative";
 
@@ -337,4 +347,5 @@
         }
     </script>
 </body>
+
 </html>

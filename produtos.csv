@@ -1,22 +1,62 @@
 Marca;Codigo;Nome;Categoria;Preço;Preço Promocional;Percentual de Desconto;Pronta Entrega
-Natura;103349;Essencial Unico Feminino 100 ml;Perfumes;322.90;0;0;Não
-Natura;103348;Essencial Unico Masculino 100 ml;Perfumes;322.90;0;0;Não
-Natura;76425;Essencial Oud Feminino 100 ml;Perfumes;289.90;0;0;Não
-Natura;76424;Essencial Oud Masculino 100 ml;Perfumes;289.90;0;0;Não
-Natura;27263;Essencial Mirra Feminino 100 ml;Perfumes;289.90;0;0;Não
-Natura;27264;Essencial Mirra Masculino 100 ml;Perfumes;289.90;0;0;Não
-Natura;114583;Essencial Ato Feminino 100 ml;Perfumes;279.90;0;0;Não
-Natura;114584;Essencial Ato Masculino 100 ml;Perfumes;279.90;0;0;Não
-Natura;165813;Essencial Atrai Feminino 100 ml;Perfumes;279.90;0;0;Não
-Natura;165811;Essencial Atrai Masculino 100 ml;Perfumes;279.90;0;0;Não
-Natura;194226;Essencial Desejos Feminino 100 ml;Perfumes;279.90;0;0;Não
-Natura;194227;Essencial Desejos Masculino 100 ml;Perfumes;279.90;0;0;Não
-Natura;76423;Essencial Exclusivo Feminino 100 ml;Perfumes;279.90;0;0;Não
-Natura;76421;Essencial Feminino 100 ml;Perfumes;279.90;0;0;Não
+Avon;174485;Black Essential Charm Masculino 100 ml;Perfumes;99.9;74.9;25;Sim
+Avon;135849;300 km/h Max Turbo Masculino 100 ml;Perfumes;99.9;74.9;25;Sim
+Avon;135843;300 km/h Eletric Masculino 100 ml;Perfumes;99.9;74.9;25;Sim
+Natura;103349;Essencial Unico Feminino 100 ml;Perfumes;322.90;289.9;10;Não
+Natura;103348;Essencial Unico Masculino 100 ml;Perfumes;322.90;289.9;10;Não
+Natura;27263;Essencial Mirra Feminino 100 ml;Perfumes;289.90;259.9;10;Não
+Natura;27264;Essencial Mirra Masculino 100 ml;Perfumes;289.90;259.9;10;Não
+Natura;76425;Essencial Oud Feminino 100 ml;Perfumes;289.90;259.9;10;Não
+Natura;76424;Essencial Oud Masculino 100 ml;Perfumes;289.90;259.9;10;Não
+Natura;128756;Una Blush Feminino 75 ml;Perfumes;319.90;254.9;20;Sim
+Natura;107021;Una Instinct Feminino 75 ml;Perfumes;319.90;254.9;20;Sim
+Natura;119046;Una Somos Feminino 75 ml;Perfumes;319.90;254.9;20;Sim
+Natura;114583;Essencial Ato Feminino 100 ml;Perfumes;279.90;249.9;11;Não
+Natura;114584;Essencial Ato Masculino 100 ml;Perfumes;279.90;249.9;11;Não
+Natura;165813;Essencial Atrai Feminino 100 ml;Perfumes;279.90;249.9;11;Não
+Natura;165811;Essencial Atrai Masculino 100 ml;Perfumes;279.90;249.9;11;Não
+Natura;194226;Essencial Desejos Feminino 100 ml;Perfumes;279.90;249.9;11;Não
+Natura;194227;Essencial Desejos Masculino 100 ml;Perfumes;279.90;249.9;11;Não
+Natura;76423;Essencial Exclusivo Feminino 100 ml;Perfumes;279.90;249.9;11;Não
+Natura;76422;Essencial Exclusivo Masculino 100 ml;Perfumes;279.90;249.9;11;Sim
+Natura;76421;Essencial Feminino 100 ml;Perfumes;279.90;249.9;11;Não
+Natura;76420;Essencial Masculino 100 ml;Perfumes;279.90;249.9;11;Sim
+Natura;167755;Essencial Sentir Masculino 100 ml;Perfumes;279.90;249.9;11;Sim
+Natura;57525;K;Perfumes;279.90;249.9;11;Não
+Natura;72468;K Max;Perfumes;279.90;219.9;21;Sim
+Natura;71770;Homem Dom Masculino 100 ml;Perfumes;239.90;214.9;10;Não
+Natura;59847;Homem Essence Masculino 100 ml;Perfumes;239.90;214.9;10;Não
+Natura;152280;Homem Nós Masculino 100 ml;Perfumes;239.90;214.9;10;Não
+Natura;81951;Homem Sagaz Masculino 100 ml;Perfumes;239.90;214.9;10;Não
+Natura;99159;Homem Tato Masculino 100 ml;Perfumes;239.90;214.9;10;Não
+Natura;214410;Essencial Safran Feminino 100 ml;Perfumes;279.90;194.9;30;Não
+Natura;214411;Essencial Safran Masculino 100 ml;Perfumes;279.90;194.9;30;Sim
 Natura;167756;Essencial Sentir Feminino 100 ml;Perfumes;279.90;194.9;30;Não
 Natura;95560;Essencial Supreme Masculino 100 ml;Perfumes;279.90;194.9;30;Sim
-Natura;214411;Essencial Safran Feminino 100 ml;Perfumes;279.90;209.9;25;Não
-Natura;214411;Essencial Safran Masculino 100 ml;Perfumes;279.90;209.9;25;Sim
-Natura;76422;Essencial Exclusivo Masculino 100 ml;Perfumes;279.90;251.9;10;Sim
-Natura;76420;Essencial Masculino 100 ml;Perfumes;279.90;251.9;10;Sim
-Natura;167755;Essencial Sentir Masculino 100 ml;Perfumes;279.90;251.9;10;Sim
+Natura;53255;Homem Masculino 100 ml;Perfumes;209.9;184.9;12;Não
+Natura;246412;Kaiak Oceano Masculino 100 ml;Perfumes;189.9;169.9;11;Não
+Natura;246408;Kaiak Sonar Masculino 100 ml;Perfumes;189.9;169.9;11;Sim
+Natura;125949;Kaiak O2 Masculino 100 ml;Perfumes;189.9;169.9;11;Não
+Natura;108401;Kaiak Urbe Masculino 100 ml;Perfumes;189.9;169.9;11;Não
+Natura;108403;Kaiak Pulso Masculino 100 ml;Perfumes;189.9;169.9;11;Não
+Natura;108402;Kaiak Aventura Masculino 100 ml;Perfumes;189.9;169.9;11;Sim
+Natura;169786;Kaiak Ultra Masculino 100 ml;Perfumes;189.9;169.9;11;Sim
+Natura;167241;Homem Aromaticos Masculino 100 ml;Perfumes;239.90;164.9;31;Sim
+Natura;125366;Homem Elo Masculino 100 ml;Perfumes;239.90;164.9;31;Sim
+Natura;112092;Homem Verum Masculino 100 ml;Perfumes;239.90;164.9;31;Sim
+Natura;119428;Homem Especiarias Masculino 100 ml;Perfumes;239.90;164.9;31;Sim
+Natura;246411;Kaiak Masculino 100 ml;Perfumes;189.9;149.9;21;Sim
+Natura;102422;Humor Liberta Unissex 75 ml;Perfumes;164.90;129.9;21;Sim
+Natura;86728;Humor Paz e Humor Masculino 75 ml;Perfumes;164.90;129.9;21;Sim
+Natura;249685;Kaiak Extremo Masculino 100 ml;Perfumes;189.9;113.9;40;Não
+Avon;152072;Clearskin Sabonete Facial Esfoliante 50g;Sabonete;27.99;20.9;25;Sim
+Avon;131008;Clearskin Sabonete de Limpeza Extraforte Com Ácido Salicílico 70g;Sabonete;17.99;9;50;Sim
+Avon;153253;Clearskin Sabonete De Limpeza Esfoliante Com Ácido Salicílico 70g;Sabonete;17.99;9;50;Sim
+Avon;153254;Clearskin Sabonete Purificante Com Carvão 70g;Sabonete;17.99;9;50;Sim
+Avon;163486;Far Away Splendoria Feminino 50 ml;Perfumes;119.9;75;37;Não
+Avon;215542;Far Away Infinity Feminino 50 ml;Perfumes;119.9;75;37;Sim
+Avon;163483;Far Away Original Feminino 50 ml;Perfumes;119.9;75;37;Não
+Avon;163484;Far Away Glamour Feminino 50 ml;Perfumes;119.9;75;37;Sim
+Avon;163485;Far Away Beyond Feminino 50 ml;Perfumes;119.9;75;37;Não
+Avon;163475;Far Away Shine Feminino 50 ml;Perfumes;119.9;75;37;Não
+Avon;163487;Far Away Moon Feminino 50 ml;Perfumes;119.9;75;37;Sim
