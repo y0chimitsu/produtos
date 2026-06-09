@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Produtos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
+
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <h1 class="text-2xl font-bold text-gray-900 tracking-tight flex items-center gap-2">
+                <i class="fa-solid fa-store text-indigo-600"></i> Catálogo Digital
+            </h1>
+            
+            <div class="relative w-full sm:w-96">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-400">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </span>
+                <input type="text" id="search-input" 
+                       class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-gray-50"
+                       placeholder="Buscar por Marca, Código ou Nome...">
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 py-6 grid grid-cols-1 lg:grid-cols-4 gap-6">
+        
+        <aside class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 h-fit space-y-6">
+            <div class="flex items-center justify-between border-b pb-3">
+                <h2 class="font-semibold text-lg flex items-center gap-2">
+                    <i class="fa-solid fa-sliders text-gray-500"></i> Filtros
+                </h2>
+                <button id="btn-clear" class="text-sm text-indigo-600 hover:text-indigo-800 font-medium hidden">
+                    Limpar
+                </button>
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Marca</label>
+                <select id="filter-marca" class="w-full p-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 text-sm">
+                    <option value="">Todas as Marcas</option>
+                </select>
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Categoria</label>
+                <select id="filter-categoria" class="w-full p-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 text-sm">
+                    <option value="">Todas as Categorias</option>
+                </select>
+            </div>
+
+            <div class="pt-2">
+                <label class="relative inline-flex items-center cursor-pointer">
+                    <input type="checkbox" id="filter-promo" class="sr-only peer">
+                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-indigo-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-indigo-600"></div>
+                    <span class="ml-3 text-sm font-medium text-gray-700">Apenas Promoções</span>
+                </label>
+            </div>
+        </aside>
+
+        <section class="lg:col-span-3">
+            <div class="flex justify-between items-center mb-4">
+                <p id="products-count" class="text-sm text-gray-500 font-medium">Carregando produtos...</p>
+            </div>
+
+            <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+                </div>
+
+            <div id="empty-state" class="hidden text-center py-16 bg-white rounded-xl shadow-sm border border-gray-100">
+                <i class="fa-solid fa-box-open text-gray-300 text-5xl mb-4"></i>
+                <p class="text-gray-500 text-lg font-medium">Nenhum produto encontrado para os filtros selecionados.</p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        let produtos = [];
+
+        // Elementos do DOM
+        const gridEl = document.getElementById('products-grid');
+        const countEl = document.getElementById('products-count');
+        const emptyEl = document.getElementById('empty-state');
+        const searchInput = document.getElementById('search-input');
+        const filterMarca = document.getElementById('filter-marca');
+        const filterCategoria = document.getElementById('filter-categoria');
+        const filterPromo = document.getElementById('filter-promo');
+        const btnClear = document.getElementById('btn-clear');
+
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', carregarDados);
+        [searchInput, filterMarca, filterCategoria, filterPromo].forEach(el => {
+            el.addEventListener('input', filtrarProdutos);
+        });
+        btnClear.addEventListener('click', limparFiltros);
+
+        // Busca e processa o arquivo CSV
+        async function carregarDados() {
+            try {
+                const response = await fetch('produtos.csv');
+                if (!response.ok) throw new Error('Não foi possível ler o arquivo CSV.');
+                
+                const data = await response.text();
+                produtos = parsingCSV(data);
+                
+                popularFiltrosDinamicos(produtos);
+                renderizarProdutos(produtos);
+            } catch (error) {
+                console.error('Erro:', error);
+                countEl.innerText = 'Erro ao carregar os dados do catálogo.';
+            }
+        }
+
+        // Converte o texto CSV estruturado por ';' em Objetos JavaScript
+        function parsingCSV(text) {
+            const linhas = text.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+            if (linhas.length <= 1) return [];
+
+            const cabecalho = linhas[0].split(';').map(c => c.trim());
+            
+            return linhas.slice(1).map(linha => {
+                const valores = linha.split(';').map(v => v.trim());
+                const item = {};
+                cabecalho.forEach((col, i) => {
+                    item[col] = valores[i] || '';
+                });
+
+                // Normalização numérica simples para tratamento lógico posterior
+                item['Preço'] = parseFloat(item['Preço']) || 0;
+                item['Preço Promocional'] = parseFloat(item['Preço Promocional']) || 0;
+                item['Percentual de Desconto'] = parseInt(item['Percentual de Desconto']) || 0;
+
+                return item;
+            });
+        }
+
+        // Alimenta as opções dos selects baseado no que existe no arquivo
+        function popularFiltrosDinamicos(lista) {
+            const marcas = [...new Set(lista.map(i => i.Marca))].sort();
+            const categorias = [...new Set(lista.map(i => i.Categoria))].sort();
+
+            marcas.forEach(m => {
+                if(m) filterMarca.add(new Option(m, m));
+            });
+            categorias.forEach(c => {
+                if(c) filterCategoria.add(new Option(c, c));
+            });
+        }
+
+        // Regra principal de filtragem de dados
+        function filtrarProdutos() {
+            const query = searchInput.value.toLowerCase().trim();
+            const marcaSel = filterMarca.value;
+            const categoriaSel = filterCategoria.value;
+            const apenasPromo = filterPromo.checked;
+
+            // Mostra ou esconde o botão limpar
+            if (query || marcaSel || categoriaSel || apenasPromo) {
+                btnClear.classList.remove('hidden');
+            } else {
+                btnClear.classList.add('hidden');
+            }
+
+            const filtrados = produtos.filter(p => {
+                const bateQuery = !query || 
+                    p.Nome.toLowerCase().includes(query) || 
+                    p.Marca.toLowerCase().includes(query) || 
+                    p.Codigo.toLowerCase().includes(query);
+
+                const bateMarca = !marcaSel || p.Marca === marcaSel;
+                const bateCategoria = !categoriaSel || p.Categoria === categoriaSel;
+                const batePromo = !apenasPromo || p['Preço Promocional'] > 0;
+
+                return bateQuery && bateMarca && bateCategoria && batePromo;
+            });
+
+            renderizarProdutos(filtrados);
+        }
+
+        // Formata os cards na tela
+        function renderizarProdutos(lista) {
+            gridEl.innerHTML = '';
+            countEl.innerText = `${lista.length} produto${lista.length !== 1 ? 's' : ''} encontrado${lista.length !== 1 ? 's' : ''}`;
+
+            if (lista.length === 0) {
+                emptyEl.classList.remove('hidden');
+                return;
+            }
+            emptyEl.classList.add('hidden');
+
+            lista.forEach(p => {
+                const temPromo = p['Preço Promocional'] > 0;
+                
+                const card = document.createElement('div');
+                card.className = "bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow flex flex-col group relative";
+
+                card.innerHTML = `
+                    ${temPromo && p['Percentual de Desconto'] > 0 ? `
+                        <span class="absolute top-3 left-3 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-md z-10 shadow-sm">
+                            -${p['Percentual de Desconto']}%
+                        </span>
+                    ` : ''}
+                    
+                    <div class="w-full bg-gray-100 h-56 flex items-center justify-center overflow-hidden relative">
+                        <img src="Imgs/${p.Codigo}.png" 
+                             alt="${p.Nome}" 
+                             class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
+                             onerror="this.onerror=null; this.src='Imgs/${p.Categoria}.png'; this.setAttribute('data-fallback', 'true'); shadowFallback(this);">
+                    </div>
+
+                    <div class="p-4 flex flex-col flex-1 justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-xs font-semibold uppercase tracking-wider text-indigo-600">${p.Marca}</span>
+                                <span class="text-xs text-gray-400 font-mono">Ref: ${p.Codigo}</span>
+                            </div>
+                            <h3 class="font-medium text-gray-900 text-base line-clamp-2 mb-2 min-h-[3rem]">${p.Nome}</h3>
+                        </div>
+
+                        <div>
+                            <div class="mt-2">
+                                ${temPromo ? `
+                                    <span class="text-xs text-gray-400 line-through">R$ ${p['Preço'].toFixed(2).replace('.', ',')}</span>
+                                    <div class="text-xl font-bold text-red-600">R$ ${p['Preço Promocional'].toFixed(2).replace('.', ',')}</div>
+                                ` : `
+                                    <span class="text-xs text-transparent select-none">Sem Promoção</span>
+                                    <div class="text-xl font-bold text-gray-900">R$ ${p['Preço'].toFixed(2).replace('.', ',')}</div>
+                                `}
+                            </div>
+                        </div>
+                    </div>
+                `;
+                gridEl.appendChild(card);
+            });
+        }
+
+        // Fallback secundário: Se nem a imagem da Categoria existir, joga uma genérica via Placehold.co
+        function shadowFallback(img) {
+            img.onerror = () => {
+                img.onerror = null;
+                img.src = `https://placehold.co/400x400/e2e8f0/475569?text=Sem+Foto`;
+            };
+        }
+
+        // Reseta todos os inputs
+        function limparFiltros() {
+            searchInput.value = '';
+            filterMarca.value = '';
+            filterCategoria.value = '';
+            filterPromo.checked = false;
+            filtrados = [...produtos];
+            btnClear.classList.add('hidden');
+            renderizarProdutos(produtos);
+        }
+    </script>
+</body>
+</html>
