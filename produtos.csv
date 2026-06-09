@@ -1,22 +1,22 @@
-Marca,Codigo,Nome,Categoria,Preço,Preço Promocional,Percentual de Desconto,Pronta Entrega,Preço,Preço Promocional,Percentual de Desconto
-Natura,103349,Essencial Unico Feminino 100 ml,Perfumes,322.90,0,0,Não
-Natura,103348,Essencial Unico Masculino 100 ml,Perfumes,322.90,0,0,Não
-Natura,76425,Essencial Oud Feminino 100 ml,Perfumes,289.90,0,0,Não
-Natura,76424,Essencial Oud Masculino 100 ml,Perfumes,289.90,0,0,Não
-Natura,27263,Essencial Mirra Feminino 100 ml,Perfumes,289.90,0,0,Não
-Natura,27264,Essencial Mirra Masculino 100 ml,Perfumes,289.90,0,0,Não
-Natura,114583,Essencial Ato Feminino 100 ml,Perfumes,279.90,0,0,Não
-Natura,114584,Essencial Ato Masculino 100 ml,Perfumes,279.90,0,0,Não
-Natura,165813,Essencial Atrai Feminino 100 ml,Perfumes,279.90,0,0,Não
-Natura,165811,Essencial Atrai Masculino 100 ml,Perfumes,279.90,0,0,Não
-Natura,194226,Essencial Desejos Feminino 100 ml,Perfumes,279.90,0,0,Não
-Natura,194227,Essencial Desejos Masculino 100 ml,Perfumes,279.90,0,0,Não
-Natura,76423,Essencial Exclusivo Feminino 100 ml,Perfumes,279.90,0,0,Não
-Natura,76421,Essencial Feminino 100 ml,Perfumes,279.90,0,0,Não
-Natura,167756,Essencial Sentir Feminino 100 ml,Perfumes,279.90,194.9,30,Não
-Natura,95560,Essencial Supreme Masculino 100 ml,Perfumes,279.90,194.9,30,Sim
-Natura,214411,Essencial Safran Feminino 100 ml,Perfumes,279.90,209.9,25,Não
-Natura,214411,Essencial Safran Masculino 100 ml,Perfumes,279.90,209.9,25,Sim
-Natura,76422,Essencial Exclusivo Masculino 100 ml,Perfumes,279.90,251.9,10,Sim
-Natura,76420,Essencial Masculino 100 ml,Perfumes,279.90,251.9,10,Sim
-Natura,167755,Essencial Sentir Masculino 100 ml,Perfumes,279.90,251.9,10,Sim
+Marca;Codigo;Nome;Categoria;Preço;Preço Promocional;Percentual de Desconto;Pronta Entrega
+Natura;103349;Essencial Unico Feminino 100 ml;Perfumes;322.90;0;0;Não
+Natura;103348;Essencial Unico Masculino 100 ml;Perfumes;322.90;0;0;Não
+Natura;76425;Essencial Oud Feminino 100 ml;Perfumes;289.90;0;0;Não
+Natura;76424;Essencial Oud Masculino 100 ml;Perfumes;289.90;0;0;Não
+Natura;27263;Essencial Mirra Feminino 100 ml;Perfumes;289.90;0;0;Não
+Natura;27264;Essencial Mirra Masculino 100 ml;Perfumes;289.90;0;0;Não
+Natura;114583;Essencial Ato Feminino 100 ml;Perfumes;279.90;0;0;Não
+Natura;114584;Essencial Ato Masculino 100 ml;Perfumes;279.90;0;0;Não
+Natura;165813;Essencial Atrai Feminino 100 ml;Perfumes;279.90;0;0;Não
+Natura;165811;Essencial Atrai Masculino 100 ml;Perfumes;279.90;0;0;Não
+Natura;194226;Essencial Desejos Feminino 100 ml;Perfumes;279.90;0;0;Não
+Natura;194227;Essencial Desejos Masculino 100 ml;Perfumes;279.90;0;0;Não
+Natura;76423;Essencial Exclusivo Feminino 100 ml;Perfumes;279.90;0;0;Não
+Natura;76421;Essencial Feminino 100 ml;Perfumes;279.90;0;0;Não
+Natura;167756;Essencial Sentir Feminino 100 ml;Perfumes;279.90;194.9;30;Não
+Natura;95560;Essencial Supreme Masculino 100 ml;Perfumes;279.90;194.9;30;Sim
+Natura;214411;Essencial Safran Feminino 100 ml;Perfumes;279.90;209.9;25;Não
+Natura;214411;Essencial Safran Masculino 100 ml;Perfumes;279.90;209.9;25;Sim
+Natura;76422;Essencial Exclusivo Masculino 100 ml;Perfumes;279.90;251.9;10;Sim
+Natura;76420;Essencial Masculino 100 ml;Perfumes;279.90;251.9;10;Sim
+Natura;167755;Essencial Sentir Masculino 100 ml;Perfumes;279.90;251.9;10;Sim
