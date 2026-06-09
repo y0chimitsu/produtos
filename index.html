@@ -52,12 +52,22 @@
                 </select>
             </div>
 
-            <div class="pt-2">
-                <label class="relative inline-flex items-center cursor-pointer">
-                    <input type="checkbox" id="filter-promo" class="sr-only peer">
-                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-indigo-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-indigo-600"></div>
-                    <span class="ml-3 text-sm font-medium text-gray-700">Apenas Promoções</span>
-                </label>
+            <div class="space-y-4 pt-2 border-t border-gray-100">
+                <div>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" id="filter-promo" class="sr-only peer">
+                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-indigo-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-indigo-600"></div>
+                        <span class="ml-3 text-sm font-medium text-gray-700">Apenas Promoções</span>
+                    </label>
+                </div>
+
+                <div>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" id="filter-entrega" class="sr-only peer">
+                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-indigo-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-emerald-600"></div>
+                        <span class="ml-3 text-sm font-medium text-gray-700">Pronta Entrega</span>
+                    </label>
+                </div>
             </div>
         </aside>
 
@@ -87,11 +97,12 @@
         const filterMarca = document.getElementById('filter-marca');
         const filterCategoria = document.getElementById('filter-categoria');
         const filterPromo = document.getElementById('filter-promo');
+        const filterEntrega = document.getElementById('filter-entrega'); // Atualizado
         const btnClear = document.getElementById('btn-clear');
 
         // Inicialização
         document.addEventListener('DOMContentLoaded', carregarDados);
-        [searchInput, filterMarca, filterCategoria, filterPromo].forEach(el => {
+        [searchInput, filterMarca, filterCategoria, filterPromo, filterEntrega].forEach(el => {
             el.addEventListener('input', filtrarProdutos);
         });
         btnClear.addEventListener('click', limparFiltros);
@@ -131,6 +142,9 @@
                 item['Preço'] = parseFloat(item['Preço']) || 0;
                 item['Preço Promocional'] = parseFloat(item['Preço Promocional']) || 0;
                 item['Percentual de Desconto'] = parseInt(item['Percentual de Desconto']) || 0;
+                
+                // Normaliza o campo Pronta Entrega para facilitar a busca (Case Insensitive)
+                item['Pronta Entrega'] = item['Pronta Entrega'] ? item['Pronta Entrega'].trim() : 'Não';
 
                 return item;
             });
@@ -155,9 +169,10 @@
             const marcaSel = filterMarca.value;
             const categoriaSel = filterCategoria.value;
             const apenasPromo = filterPromo.checked;
+            const apenasEntrega = filterEntrega.checked; // Atualizado
 
             // Mostra ou esconde o botão limpar
-            if (query || marcaSel || categoriaSel || apenasPromo) {
+            if (query || marcaSel || categoriaSel || apenasPromo || apenasEntrega) {
                 btnClear.classList.remove('hidden');
             } else {
                 btnClear.classList.add('hidden');
@@ -172,8 +187,9 @@
                 const bateMarca = !marcaSel || p.Marca === marcaSel;
                 const bateCategoria = !categoriaSel || p.Categoria === categoriaSel;
                 const batePromo = !apenasPromo || p['Preço Promocional'] > 0;
+                const bateEntrega = !apenasEntrega || p['Pronta Entrega'].toLowerCase() === 'sim'; // Atualizado
 
-                return bateQuery && bateMarca && bateCategoria && batePromo;
+                return bateQuery && bateMarca && bateCategoria && batePromo && bateEntrega;
             });
 
             renderizarProdutos(filtrados);
@@ -192,16 +208,25 @@
 
             lista.forEach(p => {
                 const temPromo = p['Preço Promocional'] > 0;
+                const prontaEntrega = p['Pronta Entrega'].toLowerCase() === 'sim'; // Atualizado
                 
                 const card = document.createElement('div');
                 card.className = "bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow flex flex-col group relative";
 
                 card.innerHTML = `
-                    ${temPromo && p['Percentual de Desconto'] > 0 ? `
-                        <span class="absolute top-3 left-3 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-md z-10 shadow-sm">
-                            -${p['Percentual de Desconto']}%
-                        </span>
-                    ` : ''}
+                    <div class="absolute top-3 left-3 flex flex-col gap-1.5 z-10">
+                        ${temPromo && p['Percentual de Desconto'] > 0 ? `
+                            <span class="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-md shadow-sm w-fit">
+                                -${p['Percentual de Desconto']}%
+                            </span>
+                        ` : ''}
+                        
+                        ${prontaEntrega ? `
+                            <span class="bg-emerald-600 text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md shadow-sm w-fit flex items-center gap-1">
+                                <i class="fa-solid fa-bolt"></i> Pronta Entrega
+                            </span>
+                        ` : ''}
+                    </div>
                     
                     <div class="w-full bg-gray-100 h-56 flex items-center justify-center overflow-hidden relative">
                         <img src="Imgs/${p.Codigo}.png" 
@@ -250,9 +275,9 @@
             filterMarca.value = '';
             filterCategoria.value = '';
             filterPromo.checked = false;
-            filtrados = [...produtos];
-            btnClear.classList.add('hidden');
+            filterEntrega.checked = false; // Atualizado
             renderizarProdutos(produtos);
+            btnClear.classList.add('hidden');
         }
     </script>
 </body>
