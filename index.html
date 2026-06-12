@@ -167,15 +167,15 @@
             }
         }
 
-        // Converte o texto CSV estruturado por ';' em Objetos JavaScript
+        // Converte o texto CSV estruturado por ',' em Objetos JavaScript
         function parsingCSV(text) {
             const linhas = text.split('\n').map(l => l.trim()).filter(l => l.length > 0);
             if (linhas.length <= 1) return [];
 
-            const cabecalho = linhas[0].split(';').map(c => c.trim());
+            const cabecalho = linhas[0].split(',').map(c => c.trim());
 
             return linhas.slice(1).map(linha => {
-                const valores = dynamicSplit(linha, ';');
+                const valores = dynamicSplit(linha, ',');
                 const item = {};
                 cabecalho.forEach((col, i) => {
                     item[col] = valores[i] || '';
