@@ -29,11 +29,20 @@
     </header>
 
     <main class="flex-1 max-w-7xl w-full mx-auto px-4 py-6 grid grid-cols-1 lg:grid-cols-4 gap-6">
-
-        <aside class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 h-fit space-y-6">
+        <aside id="a-filtros-m" class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 h-fit space-y-6 hidden">
             <div class="flex items-center justify-between border-b pb-3">
-                <h2 class="font-semibold text-lg flex items-center gap-2">
-                    <i class="fa-solid fa-sliders text-gray-500"></i> Filtros
+                <h2 id="h-filtros-m" class="font-semibold text-lg flex items-center gap-2">
+                    <i class="fa-solid fa-solid fa-chevron-down text-gray-500"></i> Filtros
+                </h2>
+                <button id="btn-clear" class="text-sm text-indigo-600 hover:text-indigo-800 font-medium hidden">
+                    Limpar
+                </button>
+            </div>
+        </aside>
+        <aside id="a-filtros" class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 h-fit space-y-6">
+            <div class="flex items-center justify-between border-b pb-3">
+                <h2 id="h-filtros" class="font-semibold text-lg flex items-center gap-2">
+                    <i class="fa-solid fa-solid fa-chevron-up text-gray-500"></i> Filtros
                 </h2>
                 <button id="btn-clear" class="text-sm text-indigo-600 hover:text-indigo-800 font-medium hidden">
                     Limpar
@@ -387,6 +396,24 @@
             renderizarProdutos(produtos);
             btnClear.classList.add('hidden');
         }
+
+        function escondeMenuMobile(){
+            asideFiltros.classList.add('hidden');
+            asideFiltrosMobile.classList.remove('hidden');
+        }
+        
+        function mostraMenuMobile(){
+            asideFiltros.classList.remove('hidden');
+            asideFiltrosMobile.classList.add('hidden');
+        }
+
+        const headerFiltros = document.getElementById('h-filtros');
+        const headerFiltrosMobile = document.getElementById('h-filtros-m');
+        const asideFiltros = document.getElementById('a-filtros');
+        const asideFiltrosMobile = document.getElementById('a-filtros-m');
+
+        headerFiltros.addEventListener('click', escondeMenuMobile);
+        headerFiltrosMobile.addEventListener('click', mostraMenuMobile);
     </script>
 </body>
 
