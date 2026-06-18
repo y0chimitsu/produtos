@@ -11,6 +11,47 @@
 
 <body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
 
+    <div id="promo-banner" class="w-full bg-indigo-600 text-white py-3 shadow flex items-center justify-center gap-4">
+        <div class="max-w-7xl w-full px-4 flex items-center justify-between">
+            <div class="flex items-center gap-3 pr-3">
+                <i class="fa-solid fa-tags text-xl"></i>
+                <div>
+                    <div class="text-sm opacity-90">
+                        Cupom <span class="font-bold">JUNHO</span> para Natura &amp; Avon com 10% de desconto
+                    </div>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <div class="flex flex-wrap gap-2">
+                    <a href="https://minhaloja.natura.com/consultoria/edufujikawa" target="_blank" rel="noopener"
+                        class="bg-white text-indigo-600 px-3 py-1.5 rounded-md font-semibold hover:bg-gray-100 text-sm">
+                        Natura
+                    </a>
+                    <a href="https://minhaloja.boticario.com.br/loja-eduardoyochimitsufujikawajunior-24155786?utm_source=portal_bot&utm_medium=catalogos-dos-ciclos"
+                        target="_blank" rel="noopener"
+                        class="bg-white text-indigo-600 px-3 py-1.5 rounded-md font-semibold hover:bg-gray-100 text-sm">
+                        O Boticario
+                    </a>
+                    <a href="https://minhaloja.eudora.com.br/loja-eduardoyochimitsufujikawajunior-24155786?utm_source=portal_bot&utm_medium=catalogos-dos-ciclos"
+                        target="_blank" rel="noopener"
+                        class="bg-white text-indigo-600 px-3 py-1.5 rounded-md font-semibold hover:bg-gray-100 text-sm">
+                        Eudora
+                    </a>
+                    <a href="https://minhaloja.ouiparis.com/loja-eduardoyochimitsufujikawajunior-24155786?utm_source=portal_bot&utm_medium=catalogos-dos-ciclos"
+                        target="_blank" rel="noopener"
+                        class="bg-white text-indigo-600 px-3 py-1.5 rounded-md font-semibold hover:bg-gray-100 text-sm">
+                        O.U.i
+                    </a>
+                    <a href="https://minhaloja.quemdisseberenice.com.br/loja-eduardoyochimitsufujikawajunior-24155786?utm_source=portal_bot&utm_medium=catalogos-dos-ciclos"
+                        target="_blank" rel="noopener"
+                        class="bg-white text-indigo-600 px-3 py-1.5 rounded-md font-semibold hover:bg-gray-100 text-sm">
+                        Quem disse, Berenice?
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <header class="bg-white shadow-sm sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
             <h1 class="text-2xl font-bold text-gray-900 tracking-tight flex items-center gap-2">
@@ -397,12 +438,12 @@
             btnClear.classList.add('hidden');
         }
 
-        function escondeMenuMobile(){
+        function escondeMenuMobile() {
             asideFiltros.classList.add('hidden');
             asideFiltrosMobile.classList.remove('hidden');
         }
-        
-        function mostraMenuMobile(){
+
+        function mostraMenuMobile() {
             asideFiltros.classList.remove('hidden');
             asideFiltrosMobile.classList.add('hidden');
         }
